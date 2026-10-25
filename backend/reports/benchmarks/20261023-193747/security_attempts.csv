@@ -1,0 +1,11 @@
+mode,attempt,attempts,rejected,accepted,expected,result,client_side_reason,broker_log_tls_errors_total,broker_log_auth_failures_total
+plain,wrong password,5,5,0,rejected,PASS,refused: Not authorized,0,10
+plain,anonymous,5,5,0,rejected,PASS,refused: Not authorized,0,10
+tls,wrong password,5,5,0,rejected,PASS,refused: Not authorized,5,10
+tls,anonymous,5,5,0,rejected,PASS,refused: Not authorized,5,10
+tls,broker not trusted by client (rogue CA trust store),5,5,0,rejected,PASS,certificate verification failed,5,10
+mtls,broker not trusted by client (rogue CA trust store),5,5,0,rejected,PASS,certificate verification failed,24,0
+mtls,client cert from rogue CA,5,5,0,rejected,PASS,connection dropped by broker before CONNACK,24,0
+mtls,expired client cert,5,5,0,rejected,PASS,connection dropped by broker before CONNACK,24,0
+mtls,wrong-purpose (serverAuth) client cert,5,5,0,rejected,PASS,connection dropped by broker before CONNACK,24,0
+mtls,no client certificate,5,5,0,rejected,PASS,connection dropped by broker before CONNACK,24,0

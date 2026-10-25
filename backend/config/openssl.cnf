@@ -1,0 +1,34 @@
+# Minimal OpenSSL config for the LOCAL DEMO PKI (used by scripts\gen_certs.ps1).
+# Self-contained so we don't depend on Git-for-Windows' default openssl.cnf.
+
+[ req ]
+distinguished_name = dn
+prompt             = no
+default_md         = sha256
+
+[ dn ]
+CN = placeholder   # always overridden with -subj
+
+# Root CA: may sign certificates, but not intermediate CAs (pathlen:0)
+[ v3_ca ]
+basicConstraints       = critical, CA:TRUE, pathlen:0
+keyUsage               = critical, keyCertSign, cRLSign
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid:always
+
+# Broker certificate: TLS server only, valid for the loopback names we connect to
+[ v3_server ]
+basicConstraints       = critical, CA:FALSE
+keyUsage               = critical, digitalSignature
+extendedKeyUsage       = serverAuth
+subjectAltName         = DNS:localhost, IP:127.0.0.1, IP:::1
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid, issuer
+
+# Client certificates (gateway, collector, devices): TLS client only
+[ v3_client ]
+basicConstraints       = critical, CA:FALSE
+keyUsage               = critical, digitalSignature
+extendedKeyUsage       = clientAuth
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid, issuer

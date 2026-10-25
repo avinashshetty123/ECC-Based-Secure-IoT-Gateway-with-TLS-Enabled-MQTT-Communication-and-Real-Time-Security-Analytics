@@ -1,0 +1,11 @@
+# Target: Python 3.12 (64-bit) on Windows 11.
+# Versions are pinned; they will be re-confirmed after the first install in Phase 3.
+paho-mqtt==2.1.0        # MQTT client (v2 callback API)
+cryptography==43.0.3    # Certificate inspection / ECC key checks in tests
+python-dotenv==1.0.1    # Load secrets from .env (never hardcoded)
+psutil==6.1.0           # CPU / memory measurement during benchmarks
+pandas==2.2.3           # Analytics and CSV export
+numpy==2.5.4            # pandas dependency (pinned after confirming it imports with pandas 2.2.3)
+plotly==5.24.1          # Interactive charts
+streamlit==1.39.0       # Dashboard
+pytest==8.3.3           # Unit / integration / security tests

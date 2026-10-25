@@ -1,0 +1,18 @@
+{
+  "modes": [
+    "plain",
+    "tls",
+    "mtls"
+  ],
+  "repetitions": 3,
+  "devices": 10,
+  "rate_hz_per_device": 5,
+  "qos": 1,
+  "warmup_s": 5,
+  "duration_s": 30,
+  "drain_s": 3,
+  "connect_samples": 30,
+  "security_attempts_per_type": 5,
+  "resource_sample_interval_s": 1.0,
+  "seed": 42
+}

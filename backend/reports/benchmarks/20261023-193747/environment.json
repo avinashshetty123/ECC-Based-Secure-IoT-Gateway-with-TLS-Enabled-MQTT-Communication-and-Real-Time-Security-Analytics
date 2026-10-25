@@ -1,0 +1,10 @@
+{
+  "python": "3.12.0",
+  "os": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "logical_cpus": 4,
+  "ram_gb": 7.8,
+  "openssl_python": "OpenSSL 3.0.11 19 Sep 2023",
+  "mosquitto": "mosquitto version 2.1.2",
+  "paho_mqtt": "2.x"
+}
